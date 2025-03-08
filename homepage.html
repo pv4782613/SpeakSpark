@@ -1,0 +1,273 @@
+<html>
+<head>
+<title>SpeakSpark</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="footer_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+html
+{
+ box-sizing: border-box;
+}
+body
+{
+margin:0;
+padding:0;
+}
+
+.container{
+background: #7e8ece;
+height:120vh;
+border-bottom:5px dashed white;
+margin-bottom:35%;
+}
+
+/* navigation bar with buttons */
+.topnav
+{
+overflow:hidden;
+position:sticky;
+top:0;
+background: #7e8ece;
+//box-shadow:0px 8px 8px rgba(0,0,0,0.5);
+z-index:8;
+}
+.topnav a
+{
+float:left;
+padding:14px 26px;
+text-decoration:none;
+color:white;
+text-align:center;
+font-size:24px;
+font-family:'Concert One';
+}
+.topnav a.rightside
+{
+float:right
+}
+
+.topnav a:hover
+{
+
+}
+img{
+position:absolute;
+float:right;
+margin:7% 2%;
+
+}
+.column
+{
+float:left;
+width:50%;
+height:300px;
+}
+.column h1{
+margin:15% 18% 0% 15%;
+font-family:'Concert One';
+font-size:70px;
+color:white;
+}
+.column input,.column a{
+font-size:25px;
+margin:8% 15.2%;
+width:33%;
+padding:10px 20px;
+border:1px solid white;
+border-radius:10px;
+}
+.column a{
+background:orange;
+margin-top:-15.5%;
+width:30%;
+text-decoration:none;
+color:black;
+padding:10px 20px 10px 20px;
+float:right;
+border:none;
+}
+.column a img{
+margin-top:-0.2%;
+margin-left:5px;
+height:35px;
+}
+.row:after
+{
+content:"";
+display:table;
+clear:both;
+}
+.row {
+  position: relative;
+  z-index: 1;
+}
+iframe{
+z-index:0;
+height:100vh;
+width:100%;
+margin-top:25%;
+border:none;
+}
+
+@media screen and (max-width:756px){
+.topnav a{
+font-size:20px;
+padding:10px 20px;
+}
+
+}
+
+
+@media screen and (max-width:635px){
+.topnav a{
+font-size:18px;
+padding:5px 10px;
+}
+
+}
+
+@media screen and (max-width:487px){
+.topnav a{
+font-size:18px;
+padding:5px;
+margin-right:5%;
+}
+.topnav #BookSpot{
+display:none;
+}
+
+}
+.card{
+	background: #edeef8;
+	width:100%;
+}
+.container2{
+float:left;
+}
+.container2 h1{
+font-size:45px;
+float:left;
+width:450px;
+margin-left:40%;
+margin-top:30%;
+}
+.p1{
+font-size:
+float:left;
+text-align:center;
+margin-left:52%;
+}
+.a111{
+background:orange;
+width:34%;
+font-size:22px;
+text-decoration:none;
+color:black;
+padding:10px 20px;
+float:left;
+border:none;
+margin-left:60%;
+margin-top:5%;
+border-radius:5px;
+}
+.a111 img{
+margin-top:-0.1%;
+margin-left:5px;
+height:30px;
+}
+.img_container2{
+float:right;
+width:350px;
+margin-left:20%;
+}
+</style>
+<body>
+
+<div class="container">
+<!-- navigation bar with buttons -->
+<div class="topnav">
+<a id="BookSpot" style="font-family: 'Concert One', cursive;font-size:25px;">SpeakSpark</a>
+<a href="qc_login_page.php" class="rightside" target="_blank">QC</a>
+<a href="admin_login_page.php" class="rightside" target="_blank">Admin</a>
+<a href="tutor_login_page.php" class="rightside" target="_blank">Tutor</a>
+<a href="student_login_page.php" class="rightside" target="_blank">Student</a>
+</div>
+
+<div class="row">
+	<div class="column">
+		<h1>Online English classes with<br> native speakers</h1>
+		<input type="email" placeholder="Email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$" required>
+		<a href="student_registration.html">Get Started<img src="res/right_arrow.png"></a>
+	</div>
+	<div class="column">
+		<img src="res/homepage.gif">
+	</div>
+</div>
+
+<iframe src="tutor_intro_video.html"></iframe>
+
+</div>
+
+<div class="card" style="height:600px;margin-bottom:100px;">
+	<div class="container2">
+		<h1>Choose your own tutor</h1>
+		<p class="p1">Choose the tutor that has the personality, professional experience, or focus area you need!</p>
+		<a href="student_registration.html" class="a111">Start Learning<img src="res/right_arrow.png"></a>
+	</div>
+<img src="res/student1.png" class="img_container2">
+</div>
+
+<!-- Footer Page -->
+<footer>
+
+<div class="row1">
+  <div class="column1">
+    		<h4 class="underline" style="color:white;margin-left:12%;">Registration</h4>
+  			  <ul>
+					<li><a href="student_registration.html" target="_blank">Student Registration</a></li>
+					<li><a href="tutor_registration.html" target="_blank">Tutor Registration</a></li>
+					<li><a href="qc_registration.html" target="_blank">QC Registration</a></li>
+					<li><a href="" target="_blank">Exam details</a></li>
+			</ul>
+  </div>
+
+  <div class="column1">
+ 			  <h4 class="underline" style="color:white;margin-left:12%;">Services</h4>
+				<ul>
+					<li><a href="available_tutor.php" target="_blank">Available Tutors</a></li>
+					<li><a href="guide_me.html" target="_blank">Guide to Student</a></li>
+					<li><a href="guide_me1.html" target="_blank">Guide to Tutor</a></li>
+					<li><a href="guide_me2.html" target="_blank">Guide to QC</a></li>
+				</ul>
+  </div>
+  
+  <div class="column1">
+    		<h4 class="underline" style="color:white;margin-left:12%;">Categories</h4>
+				<ul>
+					<li><a href="student_login_page.php" target="_blank">Student Login Page</a></li>
+					<li><a href="tutor_login_page.php" target="_blank">Tutor Login Page</a></li>
+					<li><a href="qc_login_page.php" target="_blank">QC Login Page</a></li>
+					<li><a href="admin_login_page.php" target="_blank">Admin Login Page</a></li>
+				</ul>
+  </div>
+
+  <div class="column1">
+ 		 <h4 class="underline" style="color:white;margin-left:5%;">Follow Us</h4>
+         <a href=""><i class="fa fa-facebook"></i></a>
+          <a href=""><i class="fa fa-twitter"></i></a>
+          <a href=""><i class="fa fa-instagram"></i></a>
+          <a href=""><i class="fa fa-linkedin"></i></a>
+          <a href=""><i class="fa fa-telegram"></i></a>
+  </div>
+
+</div>
+
+</footer>
+
+</body>
+
+</html>

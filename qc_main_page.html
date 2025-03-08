@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>SpeakSpark</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+html
+{
+ box-sizing: border-box;
+}
+body
+{
+margin:0;
+padding:0;
+}
+/* navigation bar with buttons */
+.topnav1
+{
+overflow:hidden;
+position:sticky;
+top:0;
+box-shadow:0px 4px 4px rgba(0,0,0,0.1);
+z-index:99;
+background:white;
+box-sizing: content-box;
+}
+.topnav1 a
+{
+float:left;
+padding:10px 22px;
+text-decoration:none;
+color:black;
+text-align:center;
+font-size:24px;
+font-family:'Concert One';
+}
+.topnav1 a:focus{
+border-bottom:5px solid #7e8ece;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+.fa{
+font-size:30px;
+float:right;
+//padding:10px 20px;
+margin-left:33%;
+}
+.logout{
+margin-left:65%;
+}
+.topnav1 a.logout:focus{
+border:none;
+}
+</style>
+<body>
+
+
+
+<!-- navigation bar with buttons -->
+<div class="topnav1">
+<a href="guide_me2.html" target="open_down">Guide Me</a>
+<a href="display_qc_profile.php" target="open_down">Profile</a>
+<a href="check_quality.php" target="open_down">Task</a>
+<a href="qc_login_page.php" class="logout" title="logout" onclick="alert('Are you sure you want to logout?');"><i class="fa fa-sign-out" style="margin-top:0px;"></i></a>
+</div>
+
+
+<iframe src="" name="open_down" style="height:100%;width:100%;border:none;">
+</iframe>
+
+
+</body>
+
+</html>

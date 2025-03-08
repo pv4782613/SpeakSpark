@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+*{
+font-family: 'Concert One'
+}
+body{
+	margin:0;
+	padding:0;
+}
+.container {
+    display: flex;
+	width:100%;
+	height:100vh;
+}
+.form-names {
+	padding:10px;
+	background: #edeff8;
+	float:left;
+	width:15%;
+}
+.form-names ul {
+	list-style: none;
+    padding: 0;
+	margin-bottom:350px;
+}
+.form-names ul li {
+	border-radius:50%;
+    border:2px solid #596dc0;
+	width:20px;
+	height:40px;
+	font-size:30px;
+    margin-bottom:50px;
+	margin-left:30%;
+	margin-top:15%;
+    cursor: pointer;
+	padding:4% 10%;
+	padding-top:6%;
+	color: #596dc0;
+}
+.form-names ul li.active {
+    background:#596dc0;
+	color:white;
+}
+.forms {
+    width: 85%;
+	float:right;
+	background:#7e8ece;
+	padding:20px;
+	padding-top:5%;
+}
+form:not(:first-of-type) {
+    display: none;
+}
+p{
+    display: block;
+    margin-bottom: 10px;
+	margin-top: 10px;
+    width:90%;
+	font-size:25px;
+	padding:10px 15px;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:5px;
+	color:white;
+}
+
+button.next-btn {
+    margin-top:20%;
+	margin-left:37.5%;
+	width: 280px;
+	padding:10px 15px;
+	font-size:18px;
+	color: #596dc0;
+	border-radius:5px;
+	border:1px solid #596dc0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+ <div class="form-names">
+        <ul>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <div class="forms">
+        <form id="form1">
+            <p><u>Create an account:</u> Click on the "Sign Up" button on the bottom right corner of the login page. You can sign up using your email address and creating a password.
+			<br><br>
+			<u>Choose your plan:</u> Cambly offers various subscription plans, including monthly and yearly plans. Choose a plan that works best for you and complete the payment process.</p>
+			
+            <button class="next-btn">Next</button>
+        </form>
+		
+       <form>
+		 <p><u>Schedule a session:</u> Once you've signed up, you can schedule a session with a tutor by clicking on the "Schedule a Session" button on the homepage. You can choose a tutor based on their profile and availability.
+		<br><br>
+		<u>Join the session:</u> At the scheduled time, log in to your Cambly account and join the session with your chosen tutor. You can use video and audio features to communicate with your tutor.
+</p>
+		 <button class="next-btn" style="margin-top:15%;">Next</button>
+	   </form>
+
+        <form id="form3">
+              <p><u>Start learning:</u> During the session, your tutor will help you improve your English skills by practicing conversation, correcting your mistakes, and providing feedback. You can also ask them any questions you have about English grammar, vocabulary, or pronunciation.
+				<br><br>
+			<u>Rate your tutor:</u> After the session, you can rate your tutor based on their performance. This helps Cambly improve the quality of its tutoring services.
+				<br><br>
+			<u>Book more sessions:</u> You can continue booking sessions with Cambly tutors as often as you like to improve your English skills.</p>
+				 <button class="next-btn" style="margin-top:10%;">Done</button>
+        </form>
+    </div>
+   
+</div>
+
+<script>
+const forms = document.querySelectorAll('form');
+const formNames = document.querySelectorAll('.form-names li');
+
+let currentForm = 0;
+
+formNames.forEach((name, index) => {
+  name.addEventListener('click', () => {
+    if (index <= currentForm) {
+      currentForm = index;
+      showForm();
+    }
+  });
+});
+
+function showForm() {
+  forms.forEach((form, index) => {
+    if (index === currentForm) {
+      form.style.display = 'block';
+      formNames[index].classList.add('active');
+    } else {
+      form.style.display = 'none';
+      formNames[index].classList.remove('active');
+    }
+  });
+}
+
+showForm();
+
+forms.forEach((form, index) => {
+  const nextBtn = form.querySelector('.next-btn');
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      if (form.checkValidity()) {
+        currentForm++;
+        showForm();
+      } else {
+        form.reportValidity();
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>

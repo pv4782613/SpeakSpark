@@ -1,0 +1,210 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+*{
+padding:0;
+margin:0;
+box-sizing:border-box;
+font-size:22px;
+}
+body{
+font-family:'Poppins';
+O
+}
+.container{
+width:100%;
+margin-left:28%;
+margin-top:5%;
+max-width:600px; 
+padding:20px;
+box-shadow:0px 0px 20px grey;
+background:linear-gradient(#7e8ece,#e91e63);
+border-radius:8px;
+color:white;
+}
+.form-group{
+width:100%;
+margin-top:10px;
+font-size:20px;
+}
+.form-group input,.form-group select,.form-group option
+.form-group textarea{
+width: 100%;
+padding: 12px;
+border-top:1px solid rgba(255,255,255,0.5);
+border-left:1px solid rgba(255,255,255,0.5);
+backdrop-filter:blur(5px);
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 16px;
+background:rgba(255,255,255,0.1); 
+color:white;
+} 
+.form-group select,.form-group option{
+color:black;
+}
+textarea{
+resize:vertical; 
+}
+
+input[type="submit"]
+{
+	width:100%;
+	border:none;
+	outline:none;
+	padding:20px;
+	font-size:24px;
+	border-radius:8px;
+	font-family:'Poppins';
+	color:rgb(27,166,247);
+	text-align:center;
+	cursor:pointer;
+	margin-top:10px;
+	transition: .3s ease background-color; 
+	background:#7e8ece;
+	color:white;
+}
+#pay-button
+{
+background:green;
+}
+</style>
+</head>
+<body>
+<form action="upload_student_registration.php" method="post" enctype="multipart/form-data">
+<div class="container">
+
+<h3 style="color:#e91e63;font-size:30px;text-align:center;">Enter the Details</h3>
+
+<div class="form-group">
+<label>Enter your full name:</label>
+<input type="text"  name="full_name"  pattern="[A-Za-zÀ-ÿ '-]{1,50}" title="full name should consists of characters" required>
+</div>
+
+<div class="form-group">
+<label>Enter your Email Address:</label>
+<input type="text" name="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$" required>
+</div>
+
+<div class="form-group">
+<label>Create your Username:</label>
+<input type="text" id="Username" name="Username" pattern="[A-Za-z]{6,}" title="UserName should be of 6 characters" required>
+</div>
+
+<div class="form-group">
+<label>Create your password:</label>
+<input type="password" id="Create" name="Create1" pattern="[0-9]{6}" title="password should consists of 6 digits" required>
+</div>
+
+<div class="form-group">
+<label>Confirm your password:</label>
+<input type="password" id="Confirm" name="Confirm" pattern="[0-9]{6}" title="password should consists of 6 digits" required>
+
+<p id="password-error" style="color: red; display: none;background:white;">Passwords do not match</p>
+
+</div>
+
+<div class="form-group">
+<select id="mySelect" name="Subscription" required>
+				<option value="">Select Subscription Plan</option>
+				<option value="Day">Deal of the Day</option>
+				<option value="Monthly">Monthly</option>     
+				<option value="Yearly">Yearly</option>
+</select>
+
+	<input type="text" id="myInput" name="rupees" value="" readonly>
+	
+</div>
+
+<div class="form-group">
+<input type="button" id="pay-button" value="Make a Payment">
+</div>
+
+<div class="form-group">
+<label>Enter the reference id of the payment: </label>
+<input type="text" name="reference_id" pattern="[0-9]{6}" title="Reference_id should consists of 6 digits" required>
+</div>
+
+<div class="form-group">
+<label>Enter your Contact no:</label>
+<input type="text" id="Contact" name="Contact" pattern="[0-9]{10}" title="Contact number should consists of 10 digits" required>
+</div>
+
+<div class="form-group">
+<label>Enter your Address:</label>
+<input type="text" id="Address" name="Address" pattern="[A-Za-zÀ-ÿ '-]{1,50}" title="Address should consist of characters" required>
+</div>
+
+<div class="form-group">
+<label>Upload your profile image:</label>
+<input type="file" id="profile" name="profile" required>
+</div>
+
+<!--reference id-->
+<input type="submit" name="submit" class=".submit" value="Register"> 
+</div>
+</form>
+
+<script>
+  const select = document.getElementById('mySelect');
+    const input1 = document.getElementById('myInput');
+
+    select.addEventListener('change', (event) => {
+        const selectedOption = event.target.value;
+
+        if (selectedOption === 'Day') {
+            input1.value = '1';
+        } else if (selectedOption === 'Monthly') {
+            input1.value = '2';
+        } else if (selectedOption === 'Yearly') {
+            input1.value = '3';
+        }
+		else{
+			input1.value = 'Please select one of the above option';
+		}
+    });
+	
+	const input = document.getElementById('myInput');
+    const payButton = document.getElementById('pay-button');
+
+    input.addEventListener('input', () => {
+        payButton.textContent = 'Pay ${input.value}';
+    });
+
+    payButton.addEventListener('click', () => {
+        const selectedOption = select.value;
+
+        if (selectedOption === 'Day') {
+           window.open('https://rzp.io/i/NQ1CF3TbOd', '_blank');
+        } else if (selectedOption === 'Monthly') {
+             window.open('https://rzp.io/i/qNYgC4Y7u', '_blank');
+        } else if (selectedOption === 'Yearly') {
+            window.open('https://rzp.io/i/BDL5upfNh', '_blank'); 
+        }
+    });
+
+
+
+  const createInput = document.getElementById('Create');
+  const confirmInput = document.getElementById('Confirm');
+  const passwordError = document.getElementById('password-error');
+  const submitButton = document.querySelector('submit');
+  
+  confirmInput.addEventListener('input', () => {
+    if (createInput.value !== confirmInput.value) {
+      passwordError.style.display = 'block';
+      submitButton.disabled = true;
+	   event.preventDefault();
+    } else {
+      passwordError.style.display = 'none';
+      if (passwordError.style.display === 'none') {
+        submitButton.disabled = false;
+      }
+    }
+  });
+</script>
+</body>
+</html>

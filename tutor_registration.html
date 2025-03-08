@@ -1,0 +1,167 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+*{
+padding:0;
+margin:0;
+box-sizing:border-box;
+font-size:22px;
+}
+body{
+font-family:'Poppins';
+O
+}
+.container{
+width:100%;
+margin-left:28%;
+margin-top:5%;
+max-width:600px; 
+padding:20px;
+box-shadow:0px 0px 20px grey;
+background:linear-gradient(#7e8ece,#e91e63);
+border-radius:8px;
+color:white;
+}
+.form-group{
+width:100%;
+margin-top:10px;
+font-size:20px;
+}
+.form-group input,.form-group select,.form-group option
+.form-group textarea{
+width: 100%;
+padding: 12px;
+border-top:1px solid rgba(255,255,255,0.5);
+border-left:1px solid rgba(255,255,255,0.5);
+backdrop-filter:blur(5px);
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 16px;
+background:rgba(255,255,255,0.1); 
+color:white;
+} 
+.form-group select,.form-group option{
+color:black;
+}
+textarea{
+resize:vertical; 
+}
+
+input[type="submit"]
+{
+	width:100%;
+	border:none;
+	outline:none;
+	padding:20px;
+	font-size:24px;
+	border-radius:8px;
+	font-family:'Poppins';
+	color:rgb(27,166,247);
+	text-align:center;
+	cursor:pointer;
+	margin-top:10px;
+	transition: .3s ease background-color; 
+	background:#7e8ece;
+	color:white;
+}
+
+</style>
+</head>
+<body>
+<form action="upload_tutor_registration.php" enctype="multipart/form-data" method="post">
+<div class="container">
+
+<h3 style="color:#e91e63;font-size:30px;text-align:center;">Enter the Details</h3>
+
+<div class="form-group">
+<label>Enter your full name:</label>
+<input type="text"  name="full_name"   pattern="[A-Za-zÀ-ÿ '-]{1,50}" title="full name should consists of characters" required>
+</div>
+
+<div class="form-group">
+<label>Enter your Email Address:</label>
+<input type="text"   name="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$" required>
+</div>
+
+<div class="form-group">
+<label>Create your Username:</label>
+<input type="text"   name="Username" pattern="[A-Za-z]{6,}" title="UserName should be of 6 characters" required>
+</div>
+
+
+<div class="form-group">
+<label>Create your password:</label>
+<input type="password" id="Create" name="Create1" pattern="[0-9]{6}" title="password should consists of 6 digits" required>
+</div>
+
+<div class="form-group">
+<label>Confirm your password:</label>
+<input type="password" id="Confirm" name="Confirm" pattern="[0-9]{6}" title="password should consists of 6 digits" required>
+
+<p id="password-error" style="color: red; display: none;background:white;">Passwords do not match</p>
+
+</div>
+
+<div class="form-group">
+<label>Country Code:</label>
+<input type="text" id="Country" name="Country" pattern="[0-9]{2}" title="Country code should be of 2 digits" required>
+</div>
+
+<div class="form-group">
+<label>Write your Introduction:</label>
+<input type="textarea" id="Introduction" name="Introduction" pattern="[A-Za-zÀ-ÿ '-]{30,}" title="Introduction should consist of characters" required>
+</div>
+
+<div class="form-group">
+<label>Add your profile picture:</label>
+<input type="file" id="profile"  name="profile"  title="profile of the tutor" required>	
+</div>
+
+<div class="form-group">
+<label>Aadhar Card:</label>
+<input type="file" id="Aadhar"  name="Aadhar"  title="Aadhar of the tutor" required>	
+</div>
+
+<div class="form-group">
+<label>Pan Card:</label>
+<input type="file" id=""  name="Pan"  title="Pan of the tutor" required>	
+</div>
+
+<div class="form-group">
+<label>Bank Details:</label>
+<input type="file" id=""  name="Bank"  title="Bank Details of the tutor" required>	
+</div>
+
+<div class="form-group">
+<label>Education Qualification:</label>
+<input type="file" id=""  name="Education" title="Education of the tutor" required>	
+</div>
+
+<input type="submit" name="submit" value="Register"> 
+</div>
+</form>
+
+<script>
+const createInput = document.getElementById('Create');
+  const confirmInput = document.getElementById('Confirm');
+  const passwordError = document.getElementById('password-error');
+  const submitButton = document.querySelector('submit');
+  
+  confirmInput.addEventListener('input', () => {
+    if (createInput.value !== confirmInput.value) {
+      passwordError.style.display = 'block';
+      submitButton.disabled = true;
+	   event.preventDefault();
+    } else {
+      passwordError.style.display = 'none';
+      if (passwordError.style.display === 'none') {
+        submitButton.disabled = false;
+      }
+    }
+  });
+</script>
+</body>
+</html>

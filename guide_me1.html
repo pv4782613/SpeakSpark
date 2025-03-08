@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+*{
+font-family: 'Concert One'
+}
+body{
+	margin:0;
+	padding:0;
+}
+.container {
+    display: flex;
+	width:100%;
+	height:100vh;
+}
+.form-names {
+	padding:10px;
+	background: #edeff8;
+	float:left;
+	width:15%;
+}
+.form-names ul {
+	list-style: none;
+    padding: 0;
+	margin-bottom:350px;
+}
+.form-names ul li {
+	border-radius:50%;
+    border:2px solid #596dc0;
+	width:20px;
+	height:40px;
+	font-size:30px;
+    margin-bottom:50px;
+	margin-left:30%;
+	margin-top:15%;
+    cursor: pointer;
+	padding:4% 10%;
+	padding-top:6%;
+	color: #596dc0;
+}
+.form-names ul li.active {
+    background:#596dc0;
+	color:white;
+}
+.forms {
+    width: 85%;
+	float:right;
+	background:#7e8ece;
+	padding:20px;
+	padding-top:5%;
+}
+form:not(:first-of-type) {
+    display: none;
+}
+p{
+    display: block;
+    margin-bottom: 10px;
+	margin-top: 10px;
+    width:90%;
+	font-size:25px;
+	padding:10px 15px;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:5px;
+	color:white;
+}
+
+button.next-btn {
+    margin-top:20%;
+	margin-left:37.5%;
+	width: 280px;
+	padding:10px 15px;
+	font-size:18px;
+	color: #596dc0;
+	border-radius:5px;
+	border:1px solid #596dc0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+ <div class="form-names">
+        <ul>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <div class="forms">
+        <form id="form1">
+            <p><u>Create an account: </u>Click on the "Become a Tutor" button on the top right corner of the homepage. You can sign up using your Facebook, Google, or Apple account, or by entering your email address and creating a password.
+			<br><br>
+			<u>Complete your profile: </u>Fill out your profile with your personal information, education background, and teaching experience. You can also add a profile picture and a short introduction video to make your profile more appealing to students.
+</p>
+			
+            <button class="next-btn">Next</button>
+        </form>
+		
+       <form>
+		 <p><u>Pass the interview: </u>Cambly conducts a short interview with all potential tutors to assess their English language skills and teaching ability. During the interview, you'll be asked to demonstrate your teaching skills and answer a few questions about your teaching philosophy.
+
+
+
+		<br><br><u>Set your availability: </u>Once you've passed the interview, you can set your availability on the Cambly platform. This will allow students to schedule sessions with you during the hours you're available.</p>
+		 <button class="next-btn" style="margin-top:15%;">Next</button>
+	   </form>
+
+        <form id="form3">
+              <p><u>Start teaching: </u>When a student schedules a session with you, you'll receive a notification and can join the session through the Cambly platform. During the session, you'll help the student improve their English skills by practicing conversation, correcting their mistakes, and providing feedback.
+<br><br>
+<u>Get paid:</u> Cambly pays its tutors on a per-minute basis. You'll earn money for every minute you spend teaching on the platform. Payments are made weekly through PayPal.</p>
+				 <button class="next-btn" style="margin-top:10%;">Done</button>
+        </form>
+    </div>
+   
+</div>
+
+<script>
+const forms = document.querySelectorAll('form');
+const formNames = document.querySelectorAll('.form-names li');
+
+let currentForm = 0;
+
+formNames.forEach((name, index) => {
+  name.addEventListener('click', () => {
+    if (index <= currentForm) {
+      currentForm = index;
+      showForm();
+    }
+  });
+});
+
+function showForm() {
+  forms.forEach((form, index) => {
+    if (index === currentForm) {
+      form.style.display = 'block';
+      formNames[index].classList.add('active');
+    } else {
+      form.style.display = 'none';
+      formNames[index].classList.remove('active');
+    }
+  });
+}
+
+showForm();
+
+forms.forEach((form, index) => {
+  const nextBtn = form.querySelector('.next-btn');
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      if (form.checkValidity()) {
+        currentForm++;
+        showForm();
+      } else {
+        form.reportValidity();
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
